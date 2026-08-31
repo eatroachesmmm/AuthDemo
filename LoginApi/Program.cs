@@ -44,8 +44,17 @@ app.MapGet("/users", async (AppDbContext db) =>
 
 app.MapPost("/users", async (User user, AppDbContext db) =>
 {
+    var exists = await db.Users.AnyAsync(u => u.Username == user.Username);
+
+    if (exists)
+    {
+        return Results.BadRequest("Username already exists.");
+    }
+
     db.Users.Add(user);
     await db.SaveChangesAsync();
+
+    return Results.Ok(user);
 });
 
 app.Run();
