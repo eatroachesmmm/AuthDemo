@@ -1,4 +1,5 @@
 using LoginApi.Data;
+using LoginApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +40,12 @@ app.MapGet("/users", async (AppDbContext db) =>
     var users = await db.Users.ToListAsync();
 
     return users;
+});
+
+app.MapPost("/users", async (User user, AppDbContext db) =>
+{
+    db.Users.Add(user);
+    await db.SaveChangesAsync();
 });
 
 app.Run();
