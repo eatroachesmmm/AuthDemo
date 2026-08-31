@@ -1,9 +1,28 @@
-let btn = document.getElementById("displayButton");
+const form = document.getElementById("registerForm");
+const messageElement = document.getElementById("message");
 
-btn.addEventListener("click", async function () {
+form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const userData = {
+        username: username,
+        password: password
+    };
+
     const response = await fetch("http://localhost:5280/users", {
-        method: "GET"
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
     });
-    const data = await response.json();
-    console.log(data);
+
+    if (response.ok) {
+        messageElement.textContent = "User registered successfully!";
+    } else if (response.status === 400) {
+        messageElement.textContent = "Username already exists. Please choose a different username.";
+    }
 });

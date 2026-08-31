@@ -9,9 +9,15 @@
 </head>
 
 <body>
-    <h1>Login Page</h1>
-    <button id="displayButton">Display</button>
-    <h2 id="allUsers"></h2>
+    <div class="container">
+        <h1>Register Page</h1>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" id="registerBtn">Register</button>
+            <h4 id="message"></h4>
+        </form>
+    </div>
 
     <script src="./script.js"></script>
 </body>
