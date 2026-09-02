@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "74dcSF1kiuY=",
+  "dgSpecHash": "BqiAl/gziO8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\aslan\\OneDrive\\Desktop\\DESKTOP\\DESKTOP FOLDERS\\portfolio\\2026 PROJECTS\\AuthDemo\\LoginApi\\LoginApi.csproj",
+  "projectFilePath": "D:\\portfolio\\2026 PROJECTS\\AuthDemo\\LoginApi\\LoginApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aslan\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\aslan\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
