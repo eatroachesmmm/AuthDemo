@@ -1,4 +1,5 @@
 using LoginApi.Data;
+using LoginApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,11 +35,35 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/users", async (AppDbContext db) =>
+//log in
+app.MapPost("/login", async (User user, AppDbContext db) =>
 {
-    var users = await db.Users.ToListAsync();
+    var exists = await db.Users.AnyAsync(u =>
+        u.Username == user.Username &&
+        u.Password == user.Password);
 
-    return users;
+    if (!exists)
+    {
+        return Results.BadRequest("Invalid username or password. Please try again.");
+    }
+
+    return Results.Ok(user);
+});
+
+//register
+app.MapPost("/register", async (User user, AppDbContext db) =>
+{
+    var exists = await db.Users.AnyAsync(u => u.Username == user.Username);
+
+    if (exists)
+    {
+        return Results.BadRequest("Username already exists.");
+    }
+
+    db.Users.Add(user);
+    await db.SaveChangesAsync();
+
+    return Results.Ok(user);
 });
 
 app.Run();

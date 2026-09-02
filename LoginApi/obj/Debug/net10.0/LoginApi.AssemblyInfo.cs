@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LoginApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8af58ec36f60743ed2c0e13adb4e72f7a766a438")]
 [assembly: System.Reflection.AssemblyProductAttribute("LoginApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LoginApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
