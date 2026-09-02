@@ -12,7 +12,7 @@ form.addEventListener("submit", async function (event) {
         password: password
     };
 
-    const response = await fetch("http://localhost:5280/users", {
+    const response = await fetch("http://localhost:5280/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
