@@ -1,4 +1,4 @@
-# Build stage
+#build
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 
 WORKDIR /src
@@ -11,7 +11,7 @@ COPY LoginApi/ LoginApi/
 
 RUN dotnet publish LoginApi/LoginApi.csproj -c Release -o /app/publish
 
-# Runtime stage
+#runtime
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 
 WORKDIR /app
