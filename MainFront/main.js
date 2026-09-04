@@ -1,4 +1,4 @@
-const messageElement = document.getElementById("message");
+const messageElement = document.getElementById("welcomeText");
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 
